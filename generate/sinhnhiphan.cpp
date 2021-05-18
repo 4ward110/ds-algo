@@ -1,30 +1,52 @@
 #include <stdio.h>
-#define MAX 100 
+#include <math.h>
+#define MAX 100
 
-int n,x[MAX];
+int n,a[MAX],ok = 0;
+
 void khoitao() {
-	scanf("%d",&n);
+	scanf("%d", &n);
+	int i;
+	for (i = 0; i < n; i++) {
+		a[i] = 0;
+	}
 }
 
-void cauhinhhientai() {
+void chht() {
 	int i;
-	for (i=1; i<=n; i++) {
-		printf("%d",x[i]);
+	for( i = 0; i < n; i++ ) {
+		printf("%d ", a[i]);
 	}
 	printf("\n");
 }
-//thuat toan quay lui
-void Try(int i) {
-	int j;
-	for(j=0; j<=1; j++) {
-		x[i] = j;
-		if (i==n) cauhinhhientai();
-		else Try(i+1);
+
+void sinhketiep() {
+	int i = n - 1;
+	while(a[i] == 1 && i >= 0){
+		i--;
 	}
+	if(i == -1)
+	{
+		ok = 1;
+	}
+	else 
+	{
+		a[i] = 1;
+		int j;
+		for(j = 1 + i; j < n; j++) {
+			a[j] = 0;
+		}
+		
+	}
+	
 }
 
 int main() {
 	khoitao();
-	Try(1);
+	while(!ok) {
+		chht();
+		sinhketiep();
+	}
+	
 	return 0;
 }

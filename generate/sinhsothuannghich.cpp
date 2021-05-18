@@ -6,7 +6,7 @@ int n,a[MAX],ok=0;
 void khoitao() {
 	scanf("%d", &n);
 	int i;
-	for (i = 0; i<n; i++) {
+	for (i = 1; i<=n; i++) {
 		a[i] = 0;
 	}
 }

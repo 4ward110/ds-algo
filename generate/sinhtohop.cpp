@@ -31,7 +31,7 @@ void sinhtiep() {
 		a[i]++;
 		int j;
 		for(j=i+1; j<=k; j++){
-			a[j]=1;
+			a[j]=0;
 		}
 	}
 }
