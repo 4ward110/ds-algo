@@ -10,20 +10,21 @@ void swap(int &a, int &b) {
 void hienmang(int m[], int n) {
 	int i;
 	for ( i = 0; i< n; i++) {
-		printf("%d", m[i]);
+		printf("%d\t", m[i]);
 	}
 }
 
 void bubble(int m[], int &n) {
-	int i,j;
-	int count = 0;
+	int i,j,kt;
 	for (i = 0; i < n - 1; i++){
+		kt = 0;
 		for (j = 0; j < n - i - 1; j++){
 			if(m[j] > m[j+1]){
 				swap(m[j],m[1+j]);
-				count ++;
+				kt=1;
 			}
 		}
+		if(kt==0) break;
 		printf("Buoc %d: ",i + 1);
 		hienmang(m,n);
 		printf("\n");
