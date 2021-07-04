@@ -42,6 +42,6 @@ int main() {
 		scanf("%d",&m[i]);
 	}
 	insert(m,n);
-	
+
 	return 0;
 }

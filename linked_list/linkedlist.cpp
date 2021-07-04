@@ -25,7 +25,7 @@ void themdau(danhsach &d) {
 	p -> next = NULL;
 	if(d.dau == NULL) {
 		d.dau = d.cuoi = p;
-	}	
+	}
 	else {
 		p->next = d.dau;
 		d.dau = p;
@@ -95,7 +95,6 @@ void hiendanhsach(danhsach &d) {
 }
 
 
-
 void xoadau(danhsach &d) {
 //	node*p = (node*)malloc(sizeof(node));
 	if(!d.dau) {
@@ -144,7 +143,7 @@ void xoavitrik(danhsach &d) {
 		while(p){
 			vt++;
 			if(vt == k - 1 ){
-				p->next = p->next->next;	
+				p->next = p->next->next;
 			}
 			else{
 				p = p->next;
@@ -184,12 +183,9 @@ int main() {
 	sapxep(d);
 	hiendanhsach(d);
 	printf("\n");
-//	printf("%d",demnode(d));
-//	xoadau(d);
-//	xoacuoi(d);
-//	xoavitrik(d);
+
 	themvitrik(d);
 	hiendanhsach(d);
-	
+
 	return 0;
 }

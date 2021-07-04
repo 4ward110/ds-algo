@@ -16,12 +16,12 @@ void docfile(dothi &g) {
 			g.a[i][j] = 0;
 		}
 	}
-	
+
 	// gan gia tri cho MTK
 	for(i = 1; i <= g.E; i++) {
 		int u, v;
 		fscanf(f, "%d%d", &u, &v);
-		// do thi vo huong nen a[u][v] <=> a[v][u] 
+		// do thi vo huong nen a[u][v] <=> a[v][u]
 		g.a[u][v] = g.a[v][u] = 1;
 	}
 

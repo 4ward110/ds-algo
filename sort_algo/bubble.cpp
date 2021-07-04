@@ -25,9 +25,11 @@ void bubble(int m[], int &n) {
 			}
 		}
 		if(kt==0) break;
-		printf("Buoc %d: ",i + 1);
-		hienmang(m,n);
-		printf("\n");
+		else {
+			printf("Buoc %d: ",i + 1);
+			hienmang(m,n);
+			printf("\n");
+		}
 	}
 }
 
@@ -38,6 +40,6 @@ int main() {
 		scanf("%d",&m[i]);
 	}
 	bubble(m,n);
-	
+
 	return 0;
 }
