@@ -111,8 +111,8 @@ void xoacuoi(List &l, int t) {
         p = p->next;
     }
     q->next = p->next;
+    l.cuoi = q;
     free(p);
-
 }
 
 
@@ -156,10 +156,11 @@ int main() {
     }
     hienList(l);
     // themvtk(l);
-    // xoavtk(l);
-    huylist(l);
-    themvtk(l);
+    xoavtk(l);
+    // huylist(l);
+    // themvtk(l);
     hienList(l);
+    printf("%d", l.cuoi->info);
 
     return 0;
 }
