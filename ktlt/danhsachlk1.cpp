@@ -122,15 +122,15 @@ void xoavtk(List &l) {
     if(k <= 0) {
         xoadau(l);
     }
-    else if(k > t) {
+    else if(k >= t) {
         xoacuoi(l,t);
     }
     else {
         Node*p = l.dau;
         int vt = 0;
         while(vt != k - 1 && p->next != NULL) {
-            p = p->next;
             vt++;
+            p = p->next;
         }
         p->next = p->next->next;
     }
