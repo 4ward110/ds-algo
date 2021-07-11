@@ -11,7 +11,7 @@ struct stack {
 	node*n;
 };
 
-void khoitao( stack &s ) {
+void khoitao(stack &s) {
 	s.n = NULL;
 }
 
