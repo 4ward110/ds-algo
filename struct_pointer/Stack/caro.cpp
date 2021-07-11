@@ -24,7 +24,7 @@ void draw_board(board &b) {
             printf("  %c   |",b.a[i][j]);
         }
         printf("\n");
-        printf("-----------------------------");
+        printf("-------------------");
         printf("\n");
     }
 }
@@ -66,12 +66,12 @@ void read_board(board b) {
             printf("%c", b.a[i][j]);
         }
         printf("\n");
-        printf("-----------------------------");
+        printf("-------------------");
         printf("\n");
     }
 }
 
-void add(board &b, int hor, int ver, int status) {
+void fill_board(board &b, int hor, int ver, int status) {
     if(status == 1) {
         b.a[hor][ver] = 1;
     }
@@ -80,9 +80,75 @@ void add(board &b, int hor, int ver, int status) {
     }
 }
 
+int check_win(board b, int i, int j) {
+    //ktra hang
+    int d = 0, k = i, h;
+    while(b.a[k][j] == b.a[i][j]) {
+        d++;
+        k++;
+    }
+    k = i - 1;
+    while(b.a[k][j] == b.a[i][j]) {
+        d++;
+        k--;
+    }
+    if(d > 2) return true;
+    d = 0;
+    h = j;
 
-int check_win() {
+    //ktra cot
+    while(b.a[i][h] == b.a[i][j]) {
+        d++;
+        h++;
+    }
+    h = j - 1;
+    while(b.a[i][h] == b.a[i][j]) {
+        d++;
+        h--;
+    }
+    if(d > 2) return true;
 
+    // ktra cheo 1
+    h = i;
+    k = j;
+    d = 0;
+    while(b.a[i][j] == b.a[h][k]) {
+        d++;
+        h++;
+        k++;
+    }
+    h = i - 1;
+    k = j - 1;
+    while (b.a[i][j] == b.a[h][k])
+    {
+        d++;
+        h--;
+        k--;
+    }
+    if(d > 2) return true;
+
+    // ktra cheo 2
+
+    h = i;
+    k = j;
+    d = 0;
+
+    while(b.a[i][j] == b.a[h][k]) {
+        d++;
+        k--;
+        h++;
+    }
+    h = i - 1;
+    k = j + 1;
+    while(b.a[i][j] == b.a[h][k]) {
+        d++;
+        k++;
+        h--;
+    }
+
+    if(d > 2) return true;
+
+    return false;
 }
 
 int main() {
@@ -91,6 +157,7 @@ int main() {
     draw_board(b);
     // start play
     while(true) {
+        printf("----Let's Play----\n");
         read_board(b);
         if(get_turn() == 1) {
             printf("It's O turn! type coordinate! Ex: 2 3");
@@ -110,10 +177,10 @@ int main() {
         // add ver-hor to board & check win
         if(ver <= b.n && ver > 0 && hor > 0 && hor <= b.n && b.a[hor][ver] == 0) {
             int status = get_turn();
-            add(b,hor,ver,status);
+            fill_board(b,hor,ver,status);
             printf("gia tri:%d", b.a[hor][ver]);
             printf("\n");
-            if(turn > 3 && check_win()) {
+            if(turn > 3 && check_win(b, hor, ver) == true) {
                 read_board(b);
                 if(get_turn() == 1) {
                     printf("O win!");
@@ -127,7 +194,7 @@ int main() {
             turn = turn + 1;
             if(turn == b.n*b.n) {
                 read_board(b);
-                printf("Fair");
+                printf("Draw!");
                 break;
             }
         }
