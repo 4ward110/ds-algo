@@ -1,3 +1,4 @@
+// Stack based linkedlist
 #include <stdio.h>
 #include <stdlib.h>
 
