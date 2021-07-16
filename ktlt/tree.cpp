@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #define MAX 100
 
 struct node {
@@ -87,19 +88,63 @@ node*Timkiem(tree t, int x) {
     return NULL;
 }
 
+void huycay(tree &t) {
+    if(t != NULL) {
+        huycay(t->left);
+        huycay(t->right);
+        delete t;
+        t = NULL;
+    }
+}
+
 int main() {
     tree t;
     khoitao(t);
-    nhap(t);
-    hien(t);
-    int x;
-    scanf("%d", &x);
-    node*p = Timkiem(t,x);
-    if(p != NULL) {
-        printf("%d\n", p->info);
-    }
-    else {
-        printf("khong ton tai node");   
+    int k = 1;
+    char c;
+    while(k) {
+        printf("0. thoat\n");
+        printf("1. nhap/ hien\n");
+        printf("2. duyetcay\n");
+        printf("3. timkiem\n");
+        printf("4. delete\n");
+        fflush(stdin);
+        scanf("%c", &c);
+        switch (c)
+        {
+        case '0':
+            k = 0;
+            break;
+        
+        case '1':
+            nhap(t);
+            hien(t);
+            printf("\n");
+            break;
+        case '2':
+            hienLRN(t);
+            printf("\n");
+            break;
+        case '3':
+        {
+            int x;
+            scanf("%d", &x);
+            node*p = Timkiem(t,x);
+            if(p != NULL) {
+                printf("%d\n", p->info);
+            }
+            else {
+                printf("khong ton tai node\n");   
+            }
+            break;
+        }
+        case '4': {
+            huycay(t);
+            printf("cay huy\n");
+            hien(t);
+            break;
+        }
+        }  
     }
     return 0;
 }

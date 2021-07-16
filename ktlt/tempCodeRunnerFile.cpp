@@ -1,3 +1,1 @@
-if(ktrarong(q)) {
-    //     q.T = NULL;
-    // }
+    // int i, j;
