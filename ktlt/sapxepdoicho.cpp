@@ -6,7 +6,6 @@ struct data {
     int a[MAX];
 };
 
-
 void hienmang(data d) {
 	int i;
 	for ( i = 0; i< d.n; i++) {

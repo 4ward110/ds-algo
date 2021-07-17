@@ -67,11 +67,9 @@ void hienDSC(dothi g) {
 	}
 }
 
-
 int main() {
 	dothi g;
 	docfile(g);
-//	hienMTK(g);
 	hienDSC(g);
 	return 0;
 }

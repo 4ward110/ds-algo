@@ -1,14 +1,14 @@
 #include <stdio.h>
 #define MAX 100
 
-int n,k,a[MAX],f[MAX];
+int t,n,a[MAX],f[MAX];
 
 void inkq() {
 	int i;
-	for(i = 1; i<=k; i++) {
+	for(i = 1; i<=n; i++) {
 		printf("%d",a[i]);
 	}
-	printf("\n");
+	printf(" ");
 }
 
 void Try(int i) {
@@ -16,7 +16,7 @@ void Try(int i) {
 	for(j = 1; j <=n; j++) {
 		if(f[j] == 0){
 			a[i] = j;
-			if(i == k){
+			if(i == n){
 				inkq();
 			}
 			else{
@@ -31,7 +31,12 @@ void Try(int i) {
 
 
 int main() {
-	scanf("%d%d", &n, &k);
-	Try(1);
+	scanf("%d", &t);
+	while(t > 0) {
+		scanf("%d",&n);
+		Try(1);
+		printf("\n");
+		t--;
+	}
 	return 0;
 }

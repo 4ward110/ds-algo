@@ -1,13 +1,13 @@
 #include <stdio.h>
 #define MAX 100
-int n,k,a[MAX];
+int t,n,k,a[MAX];
 
 void inkq() {
 	int i;
 	for(i = 1; i<=k; i++) {
 		printf("%d",a[i]);
 	}
-	printf("\n");
+	printf(" ");
 }
 
 void Try(int i) {
@@ -23,10 +23,13 @@ void Try(int i) {
 	}
 }
 
-
 int main() {
-	scanf("%d%d",&n,&k);
-	Try(1);
+	scanf("%d", &t);
+	while(t > 0) {
+		scanf("%d%d",&n,&k);
+		Try(1);
+		printf("\n");
+		t--;
+	}
 	return 0;
-	
 }
