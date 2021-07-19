@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <conio.h>
-
-#define MAX 50
+#include <string.h>
+#define MAX 100
 
 struct dothi {
 	int V, E;
@@ -9,23 +8,40 @@ struct dothi {
 };
 
 void docfile(dothi &g) {
+	char c[MAX];
+	scanf("%d",&g.V);
 	int i, j;
 	i = 0;
-	char c;
-	scanf("%d",&g.V);
 	while(i <= g.V) {
-		scanf("%c", &c);
-		if(c == '\n') {
-			i++;
-		}
-		else {
-			if(c != ' ') {
-				j = c - '0';
-				g.a[i][j] =  1;
+		gets(c);
+		int len = strlen(c);
+		int so = 0;
+		j = 0; 
+		while(j <= len) {
+			if(j == strlen(c)) {
+				i++;
 			}
+			else {
+				if(c[j] != ' ') {
+					so = 10*so + (int)(c[j] - '0');
+				}
+				else if (so > 0){
+					g.a[i][so] =  1;
+					so = 0;
+				}
+			}
+			j++;
 		}
 	}
 }
+
+void swap(int &a, int &b) {
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+
 void hienDSC(dothi g) {
 	int i, j;
 	for(i = 1; i <= g.V; i++) {
@@ -36,6 +52,7 @@ void hienDSC(dothi g) {
 		}
 	}
 }
+
 int main() {
     dothi g;
     docfile(g);
