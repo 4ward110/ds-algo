@@ -1,3 +1,1 @@
-void hien(tree t) {
-    
-}
+j
