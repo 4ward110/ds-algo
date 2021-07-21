@@ -40,24 +40,35 @@ void hiendanhsach(danhsach d) {
     }
 }
 
-void loc(danhsach &d) 
+void xoa(danhsach &d) 
 {
+    int x;
+    scanf("%d", &x);
     node*i = d.dau;
-    //pickelement 1 by 1
-    while(i != NULL && i->next != NULL) {
-        node*p = i;
-        while(p->next != NULL) {
-            // if duplicate => remove it
-            if(i->info == p->next->info) {
-                node*dup = p->next;
-                p->next = p->next->next;
-                delete (dup);
-            }
-            else {
-                p = p->next;
-            }
+    node*temp = d.dau, *pre;
+    // if headnode itselfs hold the value need to delete
+    while(temp != NULL && temp->info == x) {
+        d.dau = temp->next;
+        free(temp);
+        temp = d.dau;
+    }
+
+    // other than head
+    while (temp != NULL)
+    {
+        while (temp != NULL && temp->info != x)
+        {
+            pre = temp;
+            temp = temp->next;
         }
-        i = i->next;
+        //if value not in linked list
+        if(temp == NULL) {
+            return;
+        }
+        pre->next = temp->next;
+        free(temp);
+        //update temp for next loop
+        temp = pre->next;
     }
 }
 
@@ -70,7 +81,7 @@ int main() {
     for(int i = 0; i < n; i++) {
         themdau(d);
     }
-    loc(d);
+    xoa(d);
     hiendanhsach(d);
     return 0;
 }
