@@ -13,12 +13,13 @@ void docfile(dothi &g) {
 	int i, j;
 	i = 0;
 	while(i <= g.V) {
-		gets(c);
-		int len = strlen(c);
+		fgets(c, 100, stdin);
+		int len = strlen(c) - 1;
 		int so = 0;
 		j = 0; 
-		while(j <= len) {
-			if(j == strlen(c)) {
+		while(j <= len) 
+		{
+			if(j == strlen(c) - 1) {
 				i++;
 			}
 			else {
