@@ -26,7 +26,7 @@ void nhapdanhsach(DanhSach &d) {
     }
 }
 
-void hiendanhsach(DanhSach &d) {
+void hiendanhsach(DanhSach d) {
     int j;
     for(j = 0; j < d.n; j++) {
         printf("%d - %s",d.sv[j].masv, d.sv[j].hoten);
@@ -117,10 +117,10 @@ int main() {
     nhapdanhsach(d);
     hiendanhsach(d);
     themvitrik(d);
-    xoavtk(d);
-    tim(d);
-    printf("-----------\n");
-    sapxep(d);
+//    xoavtk(d);
+//    tim(d);
+//    printf("-----------\n");
+//    sapxep(d);
     hiendanhsach(d);
     return 0;
 }

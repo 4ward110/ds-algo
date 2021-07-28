@@ -12,14 +12,14 @@ void docfile(dothi &g) {
 	scanf("%d",&g.V);
 	int i, j;
 	i = 0;
-	while(i <= g.V) {
-		fgets(c, 100, stdin);
-		int len = strlen(c) - 1;
+	while(i < g.V) {
+		gets(c);
+		int len = strlen(c);
 		int so = 0;
 		j = 0; 
-		while(j <= len) 
+		while(j < len) 
 		{
-			if(j == strlen(c) - 1) {
+			if(j == strlen(c)) {
 				i++;
 			}
 			else {
