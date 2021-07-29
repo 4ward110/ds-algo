@@ -9,12 +9,11 @@ typedef struct node
 } *tree;
 
 void khoitao(tree &t) {
-	// khoi tao root
     t = NULL;
 }
 
 void chennode(tree &t, int x) {
-	// tao bien contro kieu node
+
     node*p = (node*)malloc(sizeof(node));
     p->info = x;
     p->right = p->left = NULL;
