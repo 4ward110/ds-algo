@@ -1,42 +1,45 @@
-#include<stdio.h>
-#include <math.h> 
-const int MAX = 1000;
-int a[MAX][MAX],b[MAX][MAX],c[MAX][MAX];
- int main(){
-  int n,m,p;
-  scanf("%d%d%d",&n,&m,&p);
-  
-   
-    for(int i = 0; i < n; i++)
-      for(int j = 0; j < m; j++)
-      { 
-         scanf("%d", &a[i][j]);
-        }
-    
-	for(int i = 0; i < m; i++)
-      for(int j = 0; j < p; j++)
-      {
-         scanf("%d", &b[i][j]);
-         }   
-	
- 
-	for(int i = 0; i < m; i++)
-      for(int j = 0; j < m; j++)
-      {
-        c[i][j]=0;  
-        for(int k=0; k<m ;k++)  
-          {  
-              c[i][j]+=a[i][k]*b[k][j];  
-          }  
-        }   
-	
-	 for(int i=0;i<p;i++)
-    {
-        for(int j=0;j<n;j++)
-        {
-            printf("%d ",c[i][j]);
-        }
-        printf("\n");
-    }
-          return 0; 
-         }
+#include <stdio.h>
+#include <conio.h>
+
+
+void docDSC(int a[][100],int &V){
+	int i, j, u, v, sc;
+	FILE*fi = fopen("DSC.txt","r");
+	fscanf(fi, "%d %d", &V, &sc);
+	for(i = 1; i <= sc; i++){
+		fscanf(fi,"%d %d", &u, &v);
+		a[u][v]=a[v][u]=1;
+	}
+	fclose(fi);
+}
+
+void ghiMTK(int a[][100],int V){
+	int i,j;
+	FILE*fi=fopen("MTK1.txt","w");
+	fprintf(fi,"%d\n",V);
+	for(i=1;i<=V;i++){
+		for(j=1;j<=V;j++){
+			fprintf(fi,"%3d",a[i][j]);
+		}
+		fprintf(fi,"\n");
+	}
+	fclose(fi);
+}
+
+void hienMTK(int a[][100],int V){
+	int i,j;
+	printf("%d\n",V);
+	for(i=1;i<=V;i++){
+		for(j=1;j<=V;j++){
+			printf("%3d",a[i][j]);
+		}
+		printf("\n");
+	}
+}
+int main(){
+	int V,a[100][100];
+	docDSC(a,V);
+	ghiMTK(a,V);
+	hienMTK(a,V);
+	return 0;
+}

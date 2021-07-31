@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <memory.h>
+
+bool ok[1005];
+
 struct dsk{
 	int dinhke[1005];
 	int n;
 };
 
 struct dsk dinh[1005];
-
-bool ok[1005];
 
 void DFS(int start) {
 	ok[start] = true;

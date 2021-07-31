@@ -1,33 +1,37 @@
 #include <stdio.h>
-#include <stdlib.h>
-#define MAX 100
-struct sinhvien{
-	int masv;
-	char hoten[20];
-	
-};
-struct node{
-	sinhvien info;
-	node*trai,*phai;
-};
-typedef node*tree;
-void khoitao(tree &t){
-	t=NULL;
-}
-void chennode(tree &t,sinhvien sv){
-	node*p=(node*)malloc(sizeof(node));
-	p->info=sv;
-	p->trai=p->phai=NULL;
-	if(t == NULL){
-		t=p;
-	}else{
-		if(t->info.masv < sv.masv){
-			chennode(t->phai,sv);
+#include <conio.h>
+#include <string.h>
+
+char s[100]; int a[100];
+int b[100];
+
+void Try(int i){
+	int j;
+	for(j = 0 ; j < strlen(s); j++){
+		if(b[j] == 0) {
+			a[i]=j;
+			b[j]=1;
+			if(i == strlen(s)) {
+				for(int l=1; l<= strlen(s); l++){
+				 	printf("%c", s[a[l]]);
+				}
+				printf(" ");
+			}
+			else{
+				Try(i+1);
+			}
+			b[j]=0;
 		}
 	}
 }
 int main(){
-	tree t;
-	khoitao(t);
+	int test;
+	scanf("%d\n",&test);
+	while(test>0){
+		gets(s);
+		Try(1);
+		printf("\n");
+		test--;
+	}
 	return 0;
 }

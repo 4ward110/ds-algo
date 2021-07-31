@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int a[1001][1001];
 
 int main() {
