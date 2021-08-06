@@ -2,11 +2,11 @@
 using namespace std;
  
 // A utility function to swap two elements
-void swap(int* a, int* b)
+void swap(int &a, int &b)
 {
-    int t = *a;
-    *a = *b;
-    *b = t;
+    int t = a;
+    a = b;
+    b = t;
 }
  
 /* This function takes last element as pivot, places
@@ -25,10 +25,10 @@ int partition (int arr[], int low, int high)
         if (arr[j] < pivot)
         {
             i++; // increment index of smaller element
-            swap(&arr[i], &arr[j]);
+            swap(arr[i], arr[j]);
         }
     }
-    swap(&arr[i + 1], &arr[high]);
+    swap(arr[i + 1], arr[high]);
     return (i + 1);
 }
  
@@ -56,8 +56,8 @@ void printArray(int arr[], int size)
 {
     int i;
     for (i = 0; i < size; i++)
-        cout << arr[i] << " ";
-    cout << endl;
+        printf("%d ", arr[i]);
+    printf("\n");
 }
  
 // Driver Code
@@ -66,7 +66,7 @@ int main()
     int arr[] = {7,2,4,9,6,5,10};
     int n = sizeof(arr) / sizeof(arr[0]);
     quickSort(arr, 0, n - 1);
-    cout << "Sorted array: \n";
+    printf("Sorted aray: \n");
     printArray(arr, n);
     return 0;
 }

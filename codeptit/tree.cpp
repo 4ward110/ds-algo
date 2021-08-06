@@ -6,6 +6,7 @@ typedef struct node
     int info;
     node*right;
     node*left;
+    
 } *tree;
 
 void khoitao(tree &t) {

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <memory.h>
 
-bool ok[1005];
+bool ok[1005];// danh dau dinh da xet
 
 struct dsk{
 	int dinhke[1005];
@@ -33,10 +33,10 @@ int main() {
 		int count = 0;
 		for(i = 0; i < e; i++) {
 			int a, b;
-			scanf("%d %d",&a, &b);
-			dinh[a].dinhke[dinh[a].n] = b;
+			scanf("%d %d",&a, &b); // 1- 2
+			dinh[a].dinhke[dinh[a].n] = b; // 1 - 2 
 			dinh[a].n++;
-			dinh[b].dinhke[dinh[b].n] = a;
+			dinh[b].dinhke[dinh[b].n] = a; // 2 - 1
 			dinh[b].n++;
 		}
 		

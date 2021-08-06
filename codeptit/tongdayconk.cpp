@@ -38,7 +38,6 @@ void Try(int i)
         if(i == n)
         {
             int s = 0;
-            // hien();
             int l;
             for(l = 1; l <= n; l++) {
                 if(d[l] == 1) {
@@ -51,7 +50,6 @@ void Try(int i)
                     tong[cnt].a[i] = d[i+1];
                 }
                 cnt++;
-                // hien();
             }
         }
         else {

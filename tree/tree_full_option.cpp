@@ -1,13 +1,18 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+
 struct node{
 	int info;
 	node*trai,*phai;
 };
+
 typedef node*tree;
+
 void khoitao(tree &t){
 	t=NULL;
 }
+
 void chennode(tree &t,int x){
 	node*p=(node*)malloc(sizeof(node));
 	p->info=x;
@@ -22,6 +27,7 @@ void chennode(tree &t,int x){
 		}
 	}
 }
+
 void nhap(tree &t){
 	int n,i,a[100];
 	scanf("%d",&n);
@@ -30,6 +36,7 @@ void nhap(tree &t){
 		chennode(t,a[i]);
 	}
 }
+
 void hien(tree t){
 	if(t!=NULL){
 		printf("%d\t",t->info);
@@ -37,6 +44,7 @@ void hien(tree t){
 		hien(t->phai);
 	}
 }
+
 void hienLNR(tree t){
 	if(t!=NULL){
 		hienLNR(t->trai);
@@ -44,6 +52,7 @@ void hienLNR(tree t){
 		hienLNR(t->phai);
 	}
 }
+
 void hienNLR(tree t){
 	if(t!=NULL){
 		printf("%d\t",t->info);
@@ -51,6 +60,7 @@ void hienNLR(tree t){
 		hienNLR(t->phai);
 	}
 }
+
 void hienLRN(tree t){
 	if(t!=NULL){
 		hienLRN(t->trai);
@@ -58,6 +68,7 @@ void hienLRN(tree t){
 		printf("%d\t",t->info);
 	}
 }
+
 node*Timkiem(tree t,int x){
 	if(t!=NULL){
 		if(t->info==x){
@@ -71,6 +82,7 @@ node*Timkiem(tree t,int x){
 	}
 	return NULL;
 }
+
 void huycay(tree &t){
 	if(t!=NULL){
 		huycay(t->trai);
@@ -79,6 +91,7 @@ void huycay(tree &t){
 		t=NULL;
 	}
 }
+
 int main(){
 	tree t;
 	khoitao(t);

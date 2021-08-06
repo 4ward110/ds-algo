@@ -40,18 +40,18 @@ int main() {
         int size = strlen(s) - 1;
         int i, j;
         //sap xep lai chuoi tu phan phim vua nhap the A->Z
-        for (i = 0; i < size-2; i++) 
-        {
-            for (j = i+1; j < size - 1; j++) 
-            {
-                if (s[i] > s[j]) 
-                {
-                    char temp = s[i];
-                    s[i] = s[j];
-                    s[j] = temp;
-                }
-            }
-        }
+//        for (i = 0; i < size-2; i++) 
+//        {
+//            for (j = i+1; j < size - 1; j++) 
+//            {
+//                if (s[i] > s[j]) 
+//                {
+//                    char temp = s[i];
+//                    s[i] = s[j];
+//                    s[j] = temp;
+//                }
+//            }
+//        }
         //quay lui de sinh cau hinh
         Try(1);
         printf("\n");

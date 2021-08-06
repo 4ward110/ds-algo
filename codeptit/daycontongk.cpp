@@ -5,8 +5,6 @@ int v[10];
 int n, k;
 int cnt = 0;
 
-
-
 struct daycon
 {
     int a[10];
@@ -30,15 +28,6 @@ void init() {
         }
     }
 }
-
-void hien() {
-  int i;
-  for (i = 1; i <= n; i++) {
-    printf("%d", d[i]);
-  }
-  printf("\n");
-}
-
 
 void Try(int i) 
 {
@@ -113,6 +102,5 @@ int main() {
         cnt = 0;
         t--;
     }
-     
     return 0;
 }

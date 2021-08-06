@@ -21,11 +21,11 @@ int partition(int a[], int low, int high ) {
     left = low;
     right = high;
     while(left < right) {
-        //move left item when left < pivot
+        //move left item when a[left? < pivot
         while(a[left] <= pivot_item) {
             left++;
         }
-        //move right item when right > pivot
+        //move right item when a[right] > pivot
         while(a[right] > pivot_item) {
             right--;
         }

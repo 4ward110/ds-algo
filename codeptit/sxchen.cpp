@@ -1,15 +1,7 @@
 #include <stdio.h>
 #define MAX 100
 
-
 int n, i, j;
-
-void swap(int &a, int &b) 
-{
-	int temp = a;
-	a = b;
-	b = temp;
-}
 
 void inkq(int x[], int l) 
 {
